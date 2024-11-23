@@ -15,6 +15,12 @@ public class DB {
             throw new RuntimeException("Failed to load SQLite JDBC driver", e);
         }
     }
+	//change this as people place bids
+	static int highest_bid = 0; 
+	
+	String sql = "INSERT INTO UserProfile (item_id, item_name, session_id, bid, bid_time) VALUES (?,?,?,?,?)";
+	
+	
     private static final String DATABASE_URL = "jdbc:sqlite:AuctionDB.db";
 
     // Establish a connection to the database

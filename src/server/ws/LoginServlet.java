@@ -41,7 +41,8 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		HttpSession session = request.getSession();
-		String target = "/WSC.jsp";
+		String target_forward = "/FORWARD.jsp";
+		String target_dutch = "/DUTCH.jsp";
 
 		//Decoding the string
 		String checkedName = request.getParameter("checked");
@@ -56,7 +57,12 @@ public class LoginServlet extends HttpServlet {
 			
 			//TODO: replace session_id with the username 
 			session.setAttribute("session_id", session.getId());
-			request.getRequestDispatcher(target).forward(request, response);
+			if(fchecked_arr[0].contains("forward")) {
+				request.getRequestDispatcher(target_forward).forward(request, response);
+			}
+			else { 
+				request.getRequestDispatcher(target_dutch).forward(request, response); 
+			}
 		} 
 		
 	/**
