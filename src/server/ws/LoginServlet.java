@@ -41,6 +41,8 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		HttpSession session = request.getSession();
+		
+		//target URL's
 		String target_forward = "/FORWARD.jsp";
 		String target_dutch = "/DUTCH.jsp";
 

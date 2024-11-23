@@ -20,15 +20,15 @@
 	<textarea id="echoText" rows="5" cols="30"></textarea>
 	<script type="text/javascript">
 	   
-		var item_id = '<%=session.getAttribute("item_id")%>';
+	
 	    var bidTime = '<%=new java.util.Date()%>';
+	    var item_id = '${item_id}';
+		var session_id = '${session_id}'; 
+		var item_name = '${item_name}';
+		var bid_current = '${starting_bid}';
+		
 		var message = document.getElementById("message");
-		var session_id = '<%=session.getAttribute("session_id")%>'; 
-		var item_name = '<%=session.getAttribute("item_name")%>';
-		var bid_current = '<%=session.getAttribute("starting_bid")%>';
-
-		var webSocket = new WebSocket(
-				"ws://localhost:8080/WebSocketServerExample/websocketendpoint");
+		var webSocket = new WebSocket("ws://localhost:8080/WebSocketServerExample/websocketendpoint");
 		var echoText = document.getElementById("echoText");
 		//echoText.value = "";
 	<%-- Below are anonymous functions
